@@ -1,5 +1,4 @@
-baseURL = 'astu-3703.github.io/welcome'
-publishDir = "welcome"
+baseURL = 'https://astu-3703.github.io/welcome'
 languageCode = 'en-us'
 title = 'Presentations'
 theme = ["reveal-hugo"]
