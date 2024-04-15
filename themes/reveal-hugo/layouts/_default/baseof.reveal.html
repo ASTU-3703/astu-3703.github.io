@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/presents/css/style.css">
+    {{ partial "layout/head" . -}}
+    {{ partial "layout/theme" . -}}
+    {{ $plugins := partial "internal/plugins" . -}}
+    {{- range $plugins }}
+      {{- with .css }}
+    <link rel="stylesheet" href="{{ . | relURL }}"> {{- end -}}
+    {{ end -}}
+    <!-- To insert markup before the closing head tag for all presentations,
+         create layouts/partials/reveal-hugo/head.html -->
+    {{- partial "reveal-hugo/head" . -}}
+    <!-- To insert markup at the end of the head tag for a specific presentation,
+         create layouts/partials/{section}/reveal-hugo/head.html -->
+    {{- $sectionHeadPartial := printf "%s/reveal-hugo/head" (.Page.Section | default "home") -}}
+    {{- if fileExists (printf "layouts/partials/%s.html" $sectionHeadPartial) -}}{{ partial $sectionHeadPartial . }}{{- end }}
+    <link rel="icon" type="image/x-icon" href="https://imagelessthought.github.io/mbaggett/images/unt.png">
+  </head>
+  <body>
+    {{ if .Param "logo.src" }}
+    <style>
+      #logo {
+        position: fixed;
+        top: {{ if .Param "logo.top"}}{{ .Param "logo.top" }}{{ else if .Param "logo.diag" }}{{ .Param "logo.diag" }}{{ else }}1%{{ end }};
+        left: {{ if .Param "logo.top"}}{{ .Param "logo.left" }}{{ else if .Param "logo.diag" }}{{ .Param "logo.diag" }}{{ else }}1%{{ end }};
+        width: {{ if .Param "logo.width"}}{{ .Param "logo.width" }}{{ else }}15%{{ end }};
+        z-index: 99;
+        background-color: {{ if .Param "logo.background"}}{{ .Param "logo.background" }}{{ else }}transparent;{{ end }};
+        padding: {{ if .Param "logo.padding"}}{{ .Param "logo.padding" }}{{ else }}0;{{ end }};
+        border: {{ if .Param "logo.border"}}{{ .Param "logo.border" }}{{ else }}none;{{ end }};
+        border-radius: {{ if .Param "logo.radius"}}{{ .Param "logo.radius" }}{{ else }}0;{{ end }};
+        box-shadow: {{ if .Param "logo.shadow"}}{{ .Param "logo.shadow" }}{{ else }}none;{{ end }};
+        }
+       #fullscreenToggle {
+        position: fixed;
+        top: {{ if .Param "fullscreenToggle.top"}}{{ .Param "fullscreenToggle.top" }}{{ else if .Param "fullscreenToggle.diag" }}{{ .Param "fullscreenToggle.diag" }}{{ else }}1%{{ end }};
+        left: {{ if .Param "fullscreenToggle.top"}}{{ .Param "fullscreenToggle.left" }}{{ else if .Param "fullscreenToggle.diag" }}{{ .Param "fullscreenToggle.diag" }}{{ else }}1%{{ end }};
+        width: {{ if .Param "fullscreenToggle.width"}}{{ .Param "fullscreenToggle.width" }}{{ else }}15%{{ end }};
+        z-index: 99;
+        background-color: {{ if .Param "fullscreenToggle.background"}}{{ .Param "fullscreenToggle.background" }}{{ else }}transparent;{{ end }};
+        padding: {{ if .Param "fullscreenToggle.padding"}}{{ .Param "fullscreenToggle.padding" }}{{ else }}0;{{ end }};
+        border: {{ if .Param "fullscreenToggle.border"}}{{ .Param "fullscreenToggle.border" }}{{ else }}none;{{ end }};
+        border-radius: {{ if .Param "fullscreenToggle.radius"}}{{ .Param "fullscreenToggle.radius" }}{{ else }}0;{{ end }};
+        box-shadow: {{ if .Param "fullscreenToggle.shadow"}}{{ .Param "fullscreenToggle.shadow" }}{{ else }}none;{{ end }};
+        color: white;
+      }
+      #fullscreenToggle:hover {
+        color: black!important;
+        background-color: #B9DCD2!important;
+        box-shadow: #292929 0 0 2px 2px;
+       }
+        #instructions {
+          position: absolute;
+          top: {{ if .Param "instructions.top"}}{{ .Param "instructions.top" }}{{ else if .Param "instructions.diag" }}{{ .Param "instructions.diag" }}{{ else }}1%{{ end }};
+          left: 50%;
+          width: fit-content;
+          z-index: 99;
+          background-color: {{ if .Param "instructions.background"}}{{ .Param "instructions.background" }}{{ else }}transparent;{{ end }};
+          padding: {{ if .Param "instructions.padding"}}{{ .Param "instructions.padding" }}{{ else }}0;{{ end }};
+          border: {{ if .Param "instructions.border"}}{{ .Param "instructions.border" }}{{ else }}none;{{ end }};
+          border-radius: {{ if .Param "instructions.radius"}}{{ .Param "instructions.radius" }}{{ else }}0;{{ end }};
+          box-shadow: {{ if .Param "instructions.shadow"}}{{ .Param "instructions.shadow" }}{{ else }}none;{{ end }};
+          font-size: {{ if .Param "instructions.font-size"}}{{ .Param "instructions.font-size" }}{{ else }}0;{{ end }};
+          transform: translateX(-50%);
+         }
+        #ack {
+          position: fixed;
+          bottom: 1rem; 
+          left: 1rem;
+          color: #B9DCD2;
+          font-family: 'Open Sans', sans-serif;
+          z-index: 999;
+        }
+    </style>
+    <a id= "logo" href="{{ .Param "logo.href" }}"  alt="{{ .Param "logo.alt" }}">
+    <img id="logo" src="{{ .Param "logo.src" }}" alt="{{ .Param "logo.alt" }}">
+    </a>
+    <div id="ack"><p>{{ .Param "ack" }}</p></div>
+    <button id="fullscreenToggle">Toggle Fullscreen</button>
+    {{ end }}
+    <div class="reveal">
+      <div class="slides">
+        {{- block "main" . -}}{{- end -}}
+      </div>
+      <!-- To insert markup at the end of the .reveal tag for all presentations,
+           create layouts/partials/reveal-hugo/end.html -->
+      {{- partial "reveal-hugo/end" . -}}
+      <!-- To insert markup at the end of the .reveal tag for a specific presentation,
+           create layouts/partials/{section}/reveal-hugo/end.html -->
+      {{- $sectionHeadPartial := printf "%s/reveal-hugo/end" (.Page.Section | default "home") -}}
+      {{- if fileExists (printf "layouts/partials/%s.html" $sectionHeadPartial) -}}{{ partial $sectionHeadPartial . }}{{- end }}
+    </div>
+    {{- partial "layout/javascript" . }}
+    <!-- To insert markup before the closing body tag for all presentations,
+         create layouts/partials/reveal-hugo/body.html -->
+    {{- partial "reveal-hugo/body" . }}
+    <!-- To insert markup at the end of the head tag for a specific presentation,
+         create layouts/partials/{section}/reveal-hugo/body.html -->
+    {{- $sectionBodyPartial := printf "%s/reveal-hugo/body" (.Page.Section | default "home") -}}
+    {{- if fileExists (printf "layouts/partials/%s.html" $sectionBodyPartial) -}}{{ partial $sectionBodyPartial . }}{{- end }}
+    <script>
+      function adjustGridRowHeight() {
+        const grid = document.querySelector('.slide-grid');
+        if (grid) {
+            const items = grid.children.length;
+            const rows = Math.ceil(items / 3); // Assuming 3 columns as per your CSS
+            const rowHeight = 100 / rows; // Calculate the percentage height for each row
+            grid.style.gridTemplateRows = `repeat(${rows}, ${rowHeight}%)`; // Set the explicit number of rows and their height
+        }
+    }
+    // Run the function when the document loads
+    document.addEventListener('DOMContentLoaded', adjustGridRowHeight);
+    // Additionally, if your grid items change dynamically or on navigation between slides, call adjustGridRowHeight()
+    </script>
+    <script>
+      document.getElementById('fullscreenToggle').addEventListener('click', function() {
+        if (!document.fullscreenElement) {
+            // Attempt to enter fullscreen mode
+            document.documentElement.requestFullscreen().catch(err => {
+                alert(`Error trying to enable fullscreen mode: ${err.message} (${err.name})`);
+            });
+        } else {
+            // Exit fullscreen mode if currently in fullscreen
+            document.exitFullscreen();
+        }
+    });
+    </script>
+  </body>
+</html>

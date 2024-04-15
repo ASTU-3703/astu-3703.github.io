@@ -1,0 +1,16 @@
+baseURL = 'astu-3703.github.io/welcome'
+publishDir = "/home/mbaggett/github/ranranfan/welcome"
+languageCode = 'en-us'
+title = 'Presentations'
+theme = ["reveal-hugo"]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[outputFormats.Reveal]
+baseName = "index"
+mediaType = "text/html"
+isHTML = true
+
+[markup.highlight]
+codeFences = false # 

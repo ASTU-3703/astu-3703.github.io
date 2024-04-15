@@ -1,0 +1,46 @@
++++
+title = "Adobe FY24 Contracts Renwal"
+description = ""
+outputs = ["Reveal"]
+ack = "Michael Baggett; College of Visual Arts and Design: April, 2024"
+[logo]
+src = "adobe.svg"
+alt = "" # Alt text. 
+width = "3%" # Size of the file.
+diag = "1%" # How far from the top right should the file be.
+top = "4%" # Overrides diag.
+left = "1%" # Overrides diag.
+background = "#fff"
+padding = ".25rem"
+[reveal_hugo]
+custom_theme = "reveal-hugo/themes/imageless.css"
+[fullscreenToggle]
++++
+# Adobe 
+## Contracts Renewal Discussion: FY24
+
+### Brief History
+
+The **UNT System** has long had an educational institutional enterprise agreement with **Adobe** that provides a full **Adobe Creative Cloud** subscription (**termed: Named User License**) for each full-time employee and *instructor of record* (this includes adjuncts and graduate students who are teaching courses).  The agreement also allows for the installation of a limited version of the Adobe Creative Cloud suite of applications, which does not provide some apps or cloud services (termed), to be installed on devices available exclusively on-premise (cannot leave campus or be accessed remotely) that can be used by anyone with an institutional account or an Adobe ID (available free-of-charge) including students, part-time employees, and even visitors (**termed: Shared Device License)**. They are provided at no addtional cost to the institution. The caveat is that these licenses are only assignable to devices that are *shared* meaning they cannot be installed on personally assigned devices.  This is what we install in classrooms, labs libraries, and for student workers and part-time employees in business units. Educational Adobe licenses is fairly unrestricted under an educational agreement.  They can be used for anything related to the organizations activity.  
+
+---
+## COVID
+
+During the COVID pandemic, when campuses across the country were closed, Adobe granted free subscriptions to all students attending classes at instutions with an enterprise agreemnent in place.  These were revoked once campuses re-opened.  
+
+Using **Higher Education Emergency Relief Funds (HEERF)** to pay for much of the first year of the agreement, the **Office of the Provost** agreed to fund a thee-year agreement to provide discounted full subscriptions to students.  The UNT System collaborated on the contract, but this agreement is separate from the UNT Ssystem agreement and is managed separately. The contract renewals have been paid for on student fees exclusively in the remaining two years of the agreement.  The subscriptions through this agreement have been sold directly to students and departments.  The program is managed by the **College of Visual Arts and Design** IT staff. All accounting is maintained by the **Office of the Provost**.  This agreement did not include the Dallas or Health Science Center campuses.
+
+The cost in years two and three of the agreement was "$"50 per subscription, with a minimum of 3000 subsciptions to be purchased: "$"150,000.  When selling a subscription we add the e-commerce processing fees to the price to the student: "$"5.50 under Kivuto (year one and two), and "$"3 (year three).
+
+The goal of the program was to generate enough revenue through the sale of the subscriptions to cover the contract renewal in the following year.
+
+---
+## Outcome of the Three-Year Agreement
+
+The first year was a wash.  We began negotiations after we received the authorization from the System and Campus in May 2021. The contract did not go into effect until November, the day before the Thanksgiving Break. By that time most students had already bought a full cost subscription through Adobe - which have a minimum length of twelve months.  The issues with the contract negotiations *have been addressed* and this is unlikely to occur again.
+
+In years two and three things have gotten better but we still have not been able to sell much beyon 1500 subscriptions.  UNT, specifically the **Office of the Provost** has  supplemented the contract renewal with additional funding in both years.      
+
+While it did result in a loss to the institution (approximately "$"75,000 in years two and three), it did result in a significant savings to our students.  At a total cost of "$"55.50 (max) it represents a savings of 84% after the first year, and 77% in the first year.  The students saved a combined "$"276,000 to "$"457,320 in each year of two and three of the agreement. 
+
+### GitHub Basics
