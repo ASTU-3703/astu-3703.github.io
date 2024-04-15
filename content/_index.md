@@ -10,6 +10,9 @@ transition = "slide"
 transition_speed = "fast"
 +++
 <style>
+    body {
+        height: 90vh;
+    }
     * {
         text-align: left;
     }
@@ -42,6 +45,7 @@ Get the *free* **Student Developer Pack**: https://education.github.com/students
 
 ### Links
 
-This page: https://astu-3703.github.io/welcome
+This page: https://astu-3703.github.io/
+- This is where the the student gallery for the class *could* be hosted in the future.
 
 Your class organization: https://github.com/ASTU-3703
